@@ -2,13 +2,14 @@
 <p>
   <%= link_to 'Back', articles_path %>
 </p>
-<table class="table table-striped table-bordered">
+<table class="table table-dark table-striped table-bordered">
   <thead>
     <tr>
       <th>Title</th>
       <th>Body</th>
       <th>Created_at</th>
       <th>Updated_at</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,5 +18,12 @@
       <td><%= @article.body %></td>
       <td><%= @article.created_at %></td>
       <td><%= @article.updated_at %></td>
+      <td>
+        <%= link_to 'Edit', edit_article_path(@article) %>
+        <%= link_to 'Destroy', article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+        } %>
+      </td>
     </tr>
   </tbody>
