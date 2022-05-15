@@ -1,21 +1,22 @@
 <%= form_with model: article do |form| %>
-  <div>
+  <div class="field form-group">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,class:"form-control",placeholder:"Enter Article title" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
+  <div class="field form-group">
     <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.text_area :body, class:"form-control",placeholder:"Enter Article Description" %>
+    <br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-secondary' %>
   </div>
 <% end %>

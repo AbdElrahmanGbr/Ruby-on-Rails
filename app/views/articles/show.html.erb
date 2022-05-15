@@ -1,29 +1,15 @@
-<h1>Showing articles</h1>
-<p>
-  <%= link_to 'Back', articles_path %>
-</p>
-<table class="table table-dark table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Created_at</th>
-      <th>Updated_at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @article.title %></td>
-      <td><%= @article.body %></td>
-      <td><%= @article.created_at %></td>
-      <td><%= @article.updated_at %></td>
-      <td>
-        <%= link_to 'Edit', edit_article_path(@article) %>
-        <%= link_to 'Destroy', article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-        } %>
-      </td>
-    </tr>
-  </tbody>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @article.title %></h1>
+  <p class="lead"><%= @article.body %></p>
+  <hr class="my-4">
+  <p>Created At:
+    <%= @article.created_at %>
+    | Updated At:
+    <%= @article.updated_at %></p>
+  <%= link_to 'Edit', edit_article_path(@article),class:"btn btn-warning" %>
+  <%= link_to 'Destroy', article_path(@article), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } ,class:"btn btn-danger" %>
+  <%= link_to 'Back', articles_path(@article),class:"btn btn-secondary" %>
+</div>
