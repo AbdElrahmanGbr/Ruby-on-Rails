@@ -20,10 +20,17 @@
         <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
   </head>
   <body>
   <%= render 'articles/header' %>
   <div class="container">
+  <br/>
+    <%= 'Welcome ' + current_user.first_name if user_signed_in? %>
+    <br/>
+      <% if notice %></p>
+      <%= render 'layouts/alerts' %>
+      <% end %>
   </br>
     <%= yield %>
   </div>

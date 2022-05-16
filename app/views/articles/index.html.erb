@@ -1,5 +1,7 @@
 <h1 class="text-center">Articles</h1>
-<h2>Our blog has <%= Article.public_count %> articles and counting!</h2>
+<h2>Our blog has
+  <%= Article.public_count %>
+  articles and counting!</h2>
 <table class="table table-striped table-bordered text-center table-hover">
   <thead class="table-dark" style="text-align:center;">
     <tr>
@@ -11,25 +13,28 @@
     </tr>
   </thead>
   <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <tbody>
-        <tr>
-          <td><%= article.title %></td>
-          <td><%= article.body %></td>
-          <td><%= article.created_at %></td>
-          <td><%= article.updated_at %></td>
-          <td>
-            <%= link_to 'Show', article,class:"btn btn-primary" %>
-          </td>
-          <td>
-            <%= link_to 'Edit', edit_article_path(article),class:"btn btn-success" %>
-          </td>
-          <td>
-            <%= link_to 'Destroy', article_path(article),class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are You Sure?"} %>
-          </td>
-        </tr>
-      </tbody>
-    <% end %>
+  <% unless article.archived? %>
+  <tbody>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.body %></td>
+      <td><%= article.created_at %></td>
+      <td><%= article.updated_at %></td>
+      <td>
+        <%= link_to 'Show', article,class:"btn btn-primary" %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_article_path(article),class:"btn btn-success" %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', article, data: {
+              method: :delete,
+              confirm: "Are you sure?"
+            },class:"btn btn-danger" %>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
   <% end %>
 </table>
 <%= link_to "New Article", new_article_path, class:"btn btn-secondary" %>

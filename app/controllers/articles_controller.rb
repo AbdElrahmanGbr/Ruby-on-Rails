@@ -32,7 +32,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    redirect_to articles_path if @article.destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
 

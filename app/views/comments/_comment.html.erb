@@ -1,10 +1,11 @@
 <% unless comment.archived? %>
   <p>
     <strong>Commenter:</strong>
-    <%= comment.commenter %>
+    <%= comment.user.first_name + ' ' + comment.user.last_name %>
   </p>
 
   <p>
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+<% end %>
