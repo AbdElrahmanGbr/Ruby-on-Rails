@@ -12,10 +12,11 @@
               confirm: "Are you sure?"
             },class:"btn btn-danger" %>
   <%= link_to 'Back', articles_path(@article),class:"btn btn-secondary" %>
-
-  <h2>Comments</h2>
+  <br><br>
+  <h2 class="text-center">Comments</h2>
   <%= render @article.comments %>
+  <br><br>
 
-  <h2>Add a comment:</h2>
+  <h2 class="text-center">Add a New Comment:</h2>
   <%= render 'comments/form' %>
 </div>

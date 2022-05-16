@@ -1,16 +1,15 @@
 <% unless comment.archived? %>
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<%= link_to "Destroy Comment", [comment.article, comment], data: {
+<div class="card">
+  <div class="card-header">
+    <h4>Commenter</h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Published By: <%= comment.user.first_name + ' ' + comment.user.last_name %></h5>
+    <p class="card-text">Description: <%= comment.body %></p>
+    <%= link_to "Destroy Comment", [comment.article, comment], data: {
   method: :delete,
                 confirm: "Are you sure?"
-              }%>
-<% end %>
+              }, class:'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
