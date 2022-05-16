@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # get('/articles', { to: 'articles#index' })
   # get "/articles/:id", to: "articles#show", as: :article
+  root "articles#index"
   resources :articles do
     resources :comments
     # Defines the root path route ("/")
   end
-  root "articles#index"
 end
